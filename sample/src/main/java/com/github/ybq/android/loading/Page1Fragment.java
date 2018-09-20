@@ -94,7 +94,7 @@ public class Page1Fragment extends Fragment implements Colors {
             });
             position = position % 15;
             Style style = Style.values()[position];
-            Sprite drawable = SpriteFactory.create(style);
+            Sprite drawable = spinKitView.getSpriteFactory().create(style);
             spinKitView.setIndeterminateDrawable(drawable);
         }
     }

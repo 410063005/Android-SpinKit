@@ -21,6 +21,8 @@ public class SpinKitView extends ProgressBar {
     private int mColor;
     private Sprite mSprite;
 
+    private SpriteFactory mSpriteFactory;
+
     public SpinKitView(Context context) {
         this(context, null);
     }
@@ -45,9 +47,18 @@ public class SpinKitView extends ProgressBar {
         setIndeterminate(true);
     }
 
-    private void init() {
-        Sprite sprite = SpriteFactory.create(mStyle);
+    public SpriteFactory getSpriteFactory() {
+        return mSpriteFactory;
+    }
+
+    public void setSpriteFactory(SpriteFactory spriteFactory) {
+        mSpriteFactory = spriteFactory;
+        Sprite sprite = mSpriteFactory.create(mStyle);
         setIndeterminateDrawable(sprite);
+    }
+
+    private void init() {
+        setSpriteFactory(new DefaultSpriteFactory());
     }
 
     @Override

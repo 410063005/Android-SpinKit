@@ -51,7 +51,7 @@ public class DetailActivity extends AppCompatActivity implements Colors {
                 TextView name = (TextView) view.findViewById(R.id.name);
                 Style style = Style.values()[position];
                 name.setText(style.name());
-                Sprite drawable = SpriteFactory.create(style);
+                Sprite drawable = spinKitView.getSpriteFactory().create(style);
                 spinKitView.setIndeterminateDrawable(drawable);
                 container.addView(view);
 
